@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #000;
+            overflow: hidden;
+        }
+
+        #keepGoing {
+            font-size: 28px;
+            color: transparent;
+            text-align: center;
+            font-family: 'SF Pro', 'Helvetica Neue', sans-serif;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            position: relative;
+            animation: moveText 2s linear infinite, pulse 1s infinite;
+        }
+
+        #keepGoing::before {
+            content: "Keep Going my love, kaya mo yan! srry :)";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            color: transparent;
+            background: linear-gradient(0deg, #fff, #fff);
+            background-clip: text;
+            -webkit-background-clip: text;
+            mask-image: linear-gradient(0deg, #fff, #fff);
+            z-index: -1;
+        }
+
+        .shadow-box {
+            text-shadow: 2px 2px 5px rgba(255, 255, 255, 0.5);
+        }
+
+        h6 {
+            font-size: 16px;
+            color: transparent;
+            text-align: center;
+            font-family: 'SF Pro', 'Helvetica Neue', sans-serif;
+            font-weight: bold;
+            letter-spacing: 2px;
+            margin-top: 20px;
+        }
+
+        h6::before {
+            content: "Hows school so far? Congrats for dean's honor, keep it up!";
+            color: transparent;
+            background: linear-gradient(0deg, #fff, #fff);
+            background-clip: text;
+            -webkit-background-clip: text;
+            mask-image: linear-gradient(0deg, #fff, #fff);
+        }
+
+        button {
+            font-size: 16px;
+            background: #fff;
+            border: none;
+            padding: 10px 20px;
+            margin-top: 20px;
+            cursor: pointer;
+            color: #000;
+            font-family: 'SF Pro', 'Helvetica Neue', sans-serif;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        .flowers {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url("image/mochi-cat.gif") center/cover no-repeat;
+            opacity: 0;
+            z-index: -2;
+            transition: all 2s ease;
+        }
+
+        .flowers.active {
+            opacity: 1;
+        }
+
+        @keyframes moveText {
+            0% {
+                transform: translateX(-100%);
+            }
+            100% {
+                transform: translateX(100%);
+            }
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="keepGoing">
+        <span class="shadow-box">Keep</span>
+        <span class="shadow-box">Going</span>
+        <span class="shadow-box">my</span>
+        <span class="shadow-box">love,</span>
+        <span class="shadow-box">kaya</span>
+        <span class="shadow-box">mo</span>
+        <span class="shadow-box">yan!</span>
+        <span class="shadow-box">srry</span>
+        <span class="shadow-box">:)</span>
+    </div>
+    <h6></h6>
+    <button onclick="showFlowers()">Click Me</button>
+    <div class="flowers"></div>
+
+    <script>
+        function showFlowers() {
+            const flowers = document.querySelector(".flowers");
+            flowers.classList.toggle("active");
+
+            // Display a pop-up message
+            const response = confirm("Wanna get some coffee? :)  If yes, kindly message this email, and if no, edi no hahaha");
+        }
+    </script>
+</body>
+</html>
